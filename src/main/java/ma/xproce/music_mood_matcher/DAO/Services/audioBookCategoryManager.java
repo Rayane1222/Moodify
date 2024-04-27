@@ -15,5 +15,6 @@ public interface audioBookCategoryManager {
 
     void deleteCategory(Integer id);
 
-   
+    public audioBookCategory updateCategory(Integer id, audioBookCategory newCategoryData);
+
 }

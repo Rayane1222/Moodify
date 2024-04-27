@@ -16,7 +16,7 @@ public class audioBookCategoryService implements audioBookCategoryManager {
 
     @Override
     public audioBookCategory saveOrUpdateCategory(audioBookCategory category) {
-        return audioBookCategoryRepository.save(category);
+        return null;
     }
 
     @Override
@@ -32,6 +32,22 @@ public class audioBookCategoryService implements audioBookCategoryManager {
     @Override
     public void deleteCategory(Integer id) {
         audioBookCategoryRepository.deleteById(id);
+    }
+
+
+    @Override
+    public audioBookCategory updateCategory(Integer id, audioBookCategory newCategoryData) {
+        Optional<audioBookCategory> optionalCategory = audioBookCategoryRepository.findById(id);
+        if (optionalCategory.isPresent()) {
+            audioBookCategory existingCategory = optionalCategory.get();
+            existingCategory.setName(newCategoryData.getName());
+            existingCategory.setAudioBookList(newCategoryData.getAudioBookList());
+
+            return audioBookCategoryRepository.save(existingCategory);
+        } else {
+
+            return null;
+        }
     }
 
    

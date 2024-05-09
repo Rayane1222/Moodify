@@ -1,9 +1,9 @@
-package ma.xproce.music_mood_matcher.DAO.Web;
+package ma.xproce.music_mood_matcher.Web;
 
 
 
 import ma.xproce.music_mood_matcher.DAO.Entities.audioBook;
-import ma.xproce.music_mood_matcher.DAO.Services.audioBookManager;
+import ma.xproce.music_mood_matcher.Services.audioBookManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,22 +1,20 @@
-package ma.xproce.music_mood_matcher.DAO.Web;
+package ma.xproce.music_mood_matcher.Web;
 
 
 import java.util.List;
 
+import ma.xproce.music_mood_matcher.DTO.UserDTO;
+import ma.xproce.music_mood_matcher.DTO.LoginDTO;
+import ma.xproce.music_mood_matcher.payload.response.LoginMessage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import ma.xproce.music_mood_matcher.DAO.Entities.User;
-import ma.xproce.music_mood_matcher.DAO.Services.UserService;
+import ma.xproce.music_mood_matcher.Services.UserService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/users")
 public class UserController {
 
@@ -27,6 +25,13 @@ public class UserController {
     public User createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
+
+    @PostMapping(path="/save")
+    public String saveEmployee(@RequestBody UserDTO userDTO){
+        String id = userService.addUserDTO(userDTO);
+        return id;
+    }
+
 
     @GetMapping
     public List<User> getAllUsers() {
@@ -48,4 +53,14 @@ public class UserController {
     public void deleteUserById(@PathVariable Integer id) {
         userService.deleteUserById(id);
     }
+
+
+    @PostMapping(path="/login")
+    public ResponseEntity<?> loginUser(@RequestBody LoginDTO loginDTO){
+        LoginMessage loginMessage = userService.loginUser(loginDTO);
+        return ResponseEntity.ok(loginMessage);
+    }
+
+
+
 }

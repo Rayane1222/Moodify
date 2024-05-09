@@ -1,4 +1,4 @@
-package ma.xproce.music_mood_matcher.DAO.Services;
+package ma.xproce.music_mood_matcher.Services;
 
 import ma.xproce.music_mood_matcher.DAO.Entities.Mood;
 import ma.xproce.music_mood_matcher.DAO.Repositories.moodRepository;

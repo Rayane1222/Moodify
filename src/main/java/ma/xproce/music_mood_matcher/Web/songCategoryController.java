@@ -1,4 +1,4 @@
-package ma.xproce.music_mood_matcher.DAO.Web;
+package ma.xproce.music_mood_matcher.Web;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ma.xproce.music_mood_matcher.DAO.Entities.songCategory;
-import ma.xproce.music_mood_matcher.DAO.Services.songCategoryService;
+import ma.xproce.music_mood_matcher.Services.songCategoryService;
 
 @RestController
 @RequestMapping("/api/songCategories")

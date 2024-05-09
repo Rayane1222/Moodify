@@ -1,4 +1,4 @@
-package ma.xproce.music_mood_matcher.DAO.Entities;
+package ma.xproce.music_mood_matcher.DTO;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,18 +9,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String password;
-    private String Name;
-    private String email;
+public class UserDTO {
+        private Integer id;
+         private String password;
+        private String Name;
+        private String email;
 
 
+    }
 
-}

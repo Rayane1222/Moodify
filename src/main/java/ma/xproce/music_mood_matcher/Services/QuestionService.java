@@ -16,23 +16,23 @@ public class QuestionService {
     @Autowired
     private questionRepository questionRepository;
 
+
     public Question createQuestion(Question question) {
         return questionRepository.save(question);
     }
-
     public List<Question> getAllQuestions() {
         return questionRepository.findAll();
     }
 
-    public Question getQuestionById(Integer id) {
+   /* public Question getQuestionById(Integer id) {
         return questionRepository.findById(id).orElse(null);
     }
 
     public Question updateQuestion(Question question) {
-       
+
         Question existingQuestion = questionRepository.findById(question.getId()).orElse(null);
         if (existingQuestion == null) {
-           
+
             return null;
         }
 
@@ -42,6 +42,6 @@ public class QuestionService {
 
     public void deleteQuestionById(Integer id) {
         questionRepository.deleteById(id);
-    }
+    }*/
 }
 

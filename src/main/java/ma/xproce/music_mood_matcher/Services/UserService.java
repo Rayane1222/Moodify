@@ -8,7 +8,7 @@ import ma.xproce.music_mood_matcher.DTO.UserDTO;
 import ma.xproce.music_mood_matcher.DTO.LoginDTO;
 import ma.xproce.music_mood_matcher.payload.response.LoginMessage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 import org.springframework.stereotype.Service;
 
 import ma.xproce.music_mood_matcher.DAO.Entities.User;
@@ -20,8 +20,7 @@ public class UserService {
     @Autowired
     private userRepository userRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+
 
     public User createUser(User user) {
         return userRepository.save(user);
@@ -55,7 +54,7 @@ public class UserService {
     public String addUserDTO(UserDTO userDTO){
        User user = new User(
             userDTO.getId(),
-            this.passwordEncoder.encode(userDTO.getPassword()),
+            userDTO.getPassword(),
             userDTO.getName(),
             userDTO.getEmail()
        );
@@ -69,8 +68,8 @@ public class UserService {
         if(user1!=null){
             String password= loginDTO.getPassword();
             String encodedPassword= user1.getPassword();
-            Boolean isPwdRight = passwordEncoder.matches(password,encodedPassword);
-            if(isPwdRight){
+
+
                 Optional<User> user = userRepository.findOneByEmailAndPassword(loginDTO.getEmail(),encodedPassword);
                 if(user.isPresent()){
                     return new LoginMessage("Login Success", true);
@@ -85,10 +84,8 @@ public class UserService {
             }
 
         }
-        else{
-            return new LoginMessage("Email doesn't exist", false);
-        }
-    }
+
+
 
 }
 

@@ -10,7 +10,7 @@ import java.util.Optional;
 @Component
 public class audioBookCategoryService implements audioBookCategoryManager {
 
-    @Autowired
+
     private audioBookCategoryRepository audioBookCategoryRepository;
 
 

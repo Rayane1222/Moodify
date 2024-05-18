@@ -16,7 +16,7 @@ import java.util.Optional;
 @RequestMapping("/api/audiobooks")
 public class audioBookController {
 
-    @Autowired
+
     private audioBookManager audioBookService;
 
     @PostMapping

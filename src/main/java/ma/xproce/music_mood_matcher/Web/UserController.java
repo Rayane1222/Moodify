@@ -14,8 +14,8 @@ import ma.xproce.music_mood_matcher.DAO.Entities.User;
 import ma.xproce.music_mood_matcher.Services.UserService;
 
 @RestController
-@CrossOrigin
-@RequestMapping("/api/users")
+@CrossOrigin("*")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
@@ -55,7 +55,7 @@ public class UserController {
     }
 
 
-    @PostMapping(path="/login")
+    @PostMapping(path="/signin")
     public ResponseEntity<?> loginUser(@RequestBody LoginDTO loginDTO){
         LoginMessage loginMessage = userService.loginUser(loginDTO);
         return ResponseEntity.ok(loginMessage);

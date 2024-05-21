@@ -10,13 +10,13 @@ import ma.xproce.music_mood_matcher.Services.QuestionService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/questions")
+@RequestMapping("/api")
 public class QuestionController {
 
     @Autowired
     private QuestionService questionService;
 
-    @GetMapping
+    @GetMapping("/questions")
     public List<Question> getAllQuestions() {
         return questionService.getAllQuestions();
     }

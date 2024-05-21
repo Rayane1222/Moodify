@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 @EnableJpaRepositories
 @Repository
 public interface questionRepository extends JpaRepository <Question,Integer>{
+    Question findById(int id);
 }

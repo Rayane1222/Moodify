@@ -4,6 +4,10 @@ package ma.xproce.music_mood_matcher.Web;
 
 
 import lombok.RequiredArgsConstructor;
+import ma.xproce.music_mood_matcher.DTO.LoginDTO;
+import ma.xproce.music_mood_matcher.DTO.SignUpDTO;
+import ma.xproce.music_mood_matcher.DTO.UserDTO;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import ma.xproce.music_mood_matcher.DAO.Entities.User;
@@ -25,16 +29,16 @@ public class UserController {
 //        return userService.createUser(user);
 //    }
 //
-//    @PostMapping(path="/save")
-//    public String saveEmployee(@RequestBody UserDTO userDTO){
-//        String id = userService.addUserDTO(userDTO);
-//        return id;
-//    }
-//
-//
+    @PostMapping(path="/save")
+    public String saveEmployee(@RequestBody SignUpDTO signUpDTO){
+        String id = userService.addUserDTO(signUpDTO);
+        return id;
+    }
+
+
     @GetMapping("/users")
     public List<User> getAllUsers() {
-        return userService.findAllUsers();
+        return userService.getAllUsers();
     }
 
 //    @GetMapping("/&{id}")
@@ -59,7 +63,7 @@ public class UserController {
 //        LoginMessage loginMessage = userService.loginUser(loginDTO);
 //        return ResponseEntity.ok(loginMessage);
 //    }
-//
+
 
 
 }

@@ -4,6 +4,8 @@ package ma.xproce.music_mood_matcher.Services;
 import java.util.List;
 
 
+import ma.xproce.music_mood_matcher.DTO.LoginDTO;
+import ma.xproce.music_mood_matcher.DTO.SignUpDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -32,11 +34,6 @@ public class UserService implements UserManager{
         return userRepository.findByUsername(username);
     }
 
-
-
-
-
-
     @Override
     public List<User> findAllUsers() {
         return userRepository.findAll();
@@ -50,6 +47,18 @@ public class UserService implements UserManager{
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+
+
+    @Override
+    public String addUserDTO(SignUpDTO signUpDTO) {
+        User user = new User();
+        user.setUsername(signUpDTO.getName());
+        user.setPassword(bCryptPasswordEncoder.encode(signUpDTO.getPassword()));
+        user.setRole("user");
+        userRepository.save(user);
+        return  String.valueOf(user.getUserid());
     }
 }
 

@@ -18,7 +18,18 @@ public class Mood {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String mood;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "question_id")
+    private Question question;
+
     @OneToMany(mappedBy = "mood")
     private List<Solution> solution;
+
+
 
 }

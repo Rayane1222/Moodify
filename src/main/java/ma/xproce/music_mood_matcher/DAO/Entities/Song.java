@@ -12,7 +12,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Song {
+public class Song extends Solution{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

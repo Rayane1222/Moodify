@@ -54,7 +54,7 @@ public class SecurityConfiguration {
                     }
                 })
         ;
-        httpSecurity.authorizeHttpRequests().requestMatchers("/login").permitAll().anyRequest().authenticated();
+        httpSecurity.authorizeHttpRequests().requestMatchers("/login","/**").permitAll().anyRequest().authenticated();
         httpSecurity.addFilterBefore(new JWTAuthenticationFilter(authenticationManager), UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();

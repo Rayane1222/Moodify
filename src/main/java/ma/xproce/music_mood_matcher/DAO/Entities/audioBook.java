@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class audioBook {
+public class audioBook extends Solution{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

@@ -50,7 +50,6 @@ public class UserService implements UserManager{
     }
 
 
-
     @Override
     public String addUserDTO(SignUpDTO signUpDTO) {
         User user = new User();
@@ -58,7 +57,7 @@ public class UserService implements UserManager{
         user.setPassword(bCryptPasswordEncoder.encode(signUpDTO.getPassword()));
         user.setRole("user");
         userRepository.save(user);
-        return  String.valueOf(user.getUserid());
+        return String.valueOf(user.getUserid());
     }
 }
 

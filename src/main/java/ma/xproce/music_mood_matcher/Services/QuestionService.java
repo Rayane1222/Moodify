@@ -24,24 +24,20 @@ public class QuestionService {
         return questionRepository.findAll();
     }
 
-   /* public Question getQuestionById(Integer id) {
+    public void deleteQuestionById(Integer id) {
+        questionRepository.deleteById(id);
+    }
+
+    public Question getQuestionById(Integer id) {
         return questionRepository.findById(id).orElse(null);
     }
 
-    public Question updateQuestion(Question question) {
-
-        Question existingQuestion = questionRepository.findById(question.getId()).orElse(null);
-        if (existingQuestion == null) {
-
-            return null;
-        }
-
-        existingQuestion.setQuestionsList(question.getQuestionsList());  // Update specific field
-        return questionRepository.save(existingQuestion);
+    public Question updateQuestion(Question updatedQuestion) {
+        return questionRepository.save(updatedQuestion);
     }
 
-    public void deleteQuestionById(Integer id) {
-        questionRepository.deleteById(id);
-    }*/
+
+
+
 }
 

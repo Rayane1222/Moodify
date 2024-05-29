@@ -18,10 +18,12 @@ import java.util.List;
 public class User {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userid;
+    @Column(unique = true, nullable = false)
     private String username;
     private String password;
-   private String role;
+    private String role;
 
-
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Question> questions;
 
 }

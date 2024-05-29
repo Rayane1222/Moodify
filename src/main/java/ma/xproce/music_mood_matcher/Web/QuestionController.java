@@ -21,23 +21,23 @@ public class QuestionController {
         return questionService.getAllQuestions();
     }
 
-//    @PostMapping
-//    public Question createQuestion(@RequestBody Question question) {
-//        return questionService.createQuestion(question);
-//    }
-//    @GetMapping("/{id}")
-//    public Question getQuestionById(@PathVariable Integer id) {
-//        return questionService.getQuestionById(id);
-//    }
-//
-//    @PutMapping("/{id}")
-//    public Question updateQuestion(@PathVariable Integer id, @RequestBody Question question) {
-//        question.setId(id);
-//        return questionService.updateQuestion(question);
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public void deleteQuestionById(@PathVariable Integer id) {
-//        questionService.deleteQuestionById(id);
-//    }
+    @PostMapping("/add")
+    public Question createQuestion(@RequestBody Question question) {
+        return questionService.createQuestion(question);
+    }
+    @GetMapping("/questions/{id}")
+    public Question getQuestionById(@PathVariable Integer id) {
+        return questionService.getQuestionById(id);
+    }
+
+    @PutMapping("/questions/{id}")
+    public Question updateQuestion(@PathVariable Integer id, @RequestBody Question question) {
+        question.setId(id);
+        return questionService.updateQuestion(question);
+    }
+
+    @DeleteMapping("/questions/{id}")
+    public void deleteQuestionById(@PathVariable Integer id) {
+        questionService.deleteQuestionById(id);
+    }
 }

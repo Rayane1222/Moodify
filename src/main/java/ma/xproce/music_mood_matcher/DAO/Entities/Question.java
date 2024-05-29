@@ -2,10 +2,7 @@ package ma.xproce.music_mood_matcher.DAO.Entities;
 
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,5 +18,9 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String questionsList;
+    private String question;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

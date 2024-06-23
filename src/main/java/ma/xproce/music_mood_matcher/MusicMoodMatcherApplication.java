@@ -45,19 +45,5 @@ public class MusicMoodMatcherApplication {
         }
     }
 
-//    @PostConstruct
-//    void initial_questions(){
-//        if (questionManager.getAllQuestions()==null) {
-//            questionManager.createQuestion(new Question(null, "Did you have a good day today?"));
-//            questionManager.createQuestion(new Question(null, "Have you experienced anything exciting or uplifting today?"));
-//            questionManager.createQuestion(new Question(null, "Is there something bothering you right now?"));
-//            questionManager.createQuestion(new Question(null, "Do you feel energetic at the moment?"));
-//            questionManager.createQuestion(new Question(null, "Did any interactions today make you feel upset or frustrated?"));
-//            questionManager.createQuestion(new Question(null, "Do you feel content and at peace right now?"));
-//            questionManager.createQuestion(new Question(null, "Has anything happened today that made you feel down or disappointed?"));
-//            questionManager.createQuestion(new Question(null, "Are you feeling relaxed and at ease right now?"));
-//            questionManager.createQuestion(new Question(null, "Did something happen today that made you smile or laugh?"));
-//        }
-//    }
 
 }
